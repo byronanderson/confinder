@@ -1,0 +1,33 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.0.9)
+    hiredis (0.4.5)
+    json (1.8.0)
+    method_source (0.8.1)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    rake (10.1.0)
+    redis (3.0.4)
+    redis-queue (0.0.3)
+      hiredis (~> 0.4.5)
+      redis (~> 3.0.4)
+    slop (3.4.5)
+    sunlight (1.1.0)
+      json (>= 1.1.3)
+      ym4r (>= 0.6.1)
+    vcr (2.3.0)
+    ym4r (0.6.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pry
+  rake
+  redis
+  redis-queue
+  sunlight
+  vcr

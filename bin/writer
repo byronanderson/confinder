@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'redis'
+require 'redis-queue'
+require_relative '../lib/confinder/writer'
+
+def queue
+  @queue ||= Redis::Queue.new('waiting_on_writer', 'processing_in_writer', redis: redis)
+end
+
+def redis
+  @redis ||= Redis.new
+end
+
+def each_person
+  while message = queue.pop
+    message = JSON.parse(message)
+    yield message
+    queue.commit
+  end
+end
+
+writer = Confinder::Writer.new
+
+begin
+  each_person do |person|
+    writer.write(person)
+    writer.flush
+  end
+ensure
+  writer.close
+end

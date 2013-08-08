@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://services.sunlightlabs.com/api/legislators.allForZip.json?apikey=6a084c8b1f614684bb39086b51ff5599&zip=80227
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.0.5
+      Content-Type:
+      - application/json
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '3430'
+      Date:
+      - Wed, 07 Aug 2013 23:17:30 GMT
+      X-Varnish:
+      - '564632346'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"response": {"legislators": [{"legislator": {"website": "http://www.bennet.senate.gov",
+        "fax": "202-228-5036", "govtrack_id": "412330", "firstname": "Michael", "chamber":
+        "senate", "middlename": "F.", "lastname": "Bennet", "congress_office": "458
+        Russell Senate Office Building", "eventful_id": "", "phone": "202-224-5852",
+        "webform": "http://www.bennet.senate.gov/contact/", "youtube_url": "http://youtube.com/SenatorBennet",
+        "nickname": "", "gender": "M", "district": "Junior Seat", "title": "Sen",
+        "congresspedia_url": "http://www.opencongress.org/wiki/Michael_Bennet", "in_office":
+        true, "senate_class": "III", "name_suffix": "", "twitter_id": "SenBennetCo",
+        "birthdate": "1964-11-28", "bioguide_id": "B001267", "fec_id": "S0CO00211",
+        "state": "CO", "crp_id": "N00030608", "official_rss": "", "facebook_id": "97172997732",
+        "party": "D", "email": "", "votesmart_id": "110942"}}, {"legislator": {"website":
+        "http://www.house.gov/degette", "fax": "202-225-5657", "govtrack_id": "400101",
+        "firstname": "Diana", "chamber": "house", "middlename": "L.", "lastname":
+        "DeGette", "congress_office": "2368 Rayburn House Office Building", "eventful_id":
+        "", "phone": "202-225-4431", "webform": "http://www.house.gov/formdegette/zip_auth.htm",
+        "youtube_url": "http://youtube.com/RepDianaDeGette", "nickname": "", "gender":
+        "F", "district": "1", "title": "Rep", "congresspedia_url": "http://www.opencongress.org/wiki/Diana_DeGette",
+        "in_office": true, "senate_class": "", "name_suffix": "", "twitter_id": "RepDianaDeGette",
+        "birthdate": "1957-07-29", "bioguide_id": "D000197", "fec_id": "H6CO01141",
+        "state": "CO", "crp_id": "N00006134", "official_rss": "", "facebook_id": "DianaDeGette",
+        "party": "D", "email": "", "votesmart_id": "561"}}, {"legislator": {"website":
+        "http://www.markudall.senate.gov", "fax": "202-226-7840", "govtrack_id": "400412",
+        "firstname": "Mark", "chamber": "senate", "middlename": "E.", "lastname":
+        "Udall", "congress_office": "730 Hart Senate Office Building", "eventful_id":
+        "", "phone": "202-224-5941", "webform": "http://www.markudall.senate.gov/?p=contact",
+        "youtube_url": "http://youtube.com/senatormarkudall", "nickname": "", "gender":
+        "M", "district": "Senior Seat", "title": "Sen", "congresspedia_url": "http://www.opencongress.org/wiki/Mark_Udall",
+        "in_office": true, "senate_class": "II", "name_suffix": "", "twitter_id":
+        "MarkUdall", "birthdate": "1950-07-18", "bioguide_id": "U000038", "fec_id":
+        "H8CO02087", "state": "CO", "crp_id": "N00008051", "official_rss": "", "facebook_id":
+        "markudall", "party": "D", "email": "", "votesmart_id": "12329"}}, {"legislator":
+        {"website": "http://perlmutter.house.gov", "fax": "202-225-5278", "govtrack_id":
+        "412192", "firstname": "Ed", "chamber": "house", "middlename": "", "lastname":
+        "Perlmutter", "congress_office": "1410 Longworth House Office Building", "eventful_id":
+        "", "phone": "202-225-2645", "webform": "http://perlmutter.house.gov/IMA/issue_subscribe.htm",
+        "youtube_url": "http://youtube.com/RepPerlmutter", "nickname": "", "gender":
+        "M", "district": "7", "title": "Rep", "congresspedia_url": "http://www.opencongress.org/wiki/Ed_Perlmutter",
+        "in_office": true, "senate_class": "", "name_suffix": "", "twitter_id": "RepPerlmutter",
+        "birthdate": "1953-05-01", "bioguide_id": "P000593", "fec_id": "H6CO07023",
+        "state": "CO", "crp_id": "N00027510", "official_rss": "", "facebook_id": "86174496459",
+        "party": "D", "email": "", "votesmart_id": "2653"}}]}}'
+    http_version: 
+  recorded_at: Wed, 07 Aug 2013 23:17:02 GMT
+recorded_with: VCR 2.3.0

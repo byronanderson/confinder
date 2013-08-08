@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+require 'redis'
+require 'redis-queue'
+require_relative '../lib/confinder/fetcher'
+
+def fetch_queue
+  @fetch_queue ||= Redis::Queue.new('waiting', 'processing', redis: redis)
+end
+
+def output_queue
+  @output_queue ||= Redis::Queue.new('waiting_on_writer', 'processing_in_writer', redis: redis)
+end
+
+def redis
+  @redis ||= Redis.new
+end
+
+def each_person
+  while message = fetch_queue.pop
+    puts "received: #{message}"
+    message = JSON.parse(message)
+    yield message
+    fetch_queue.commit
+  end
+end
+
+fetcher = Confinder::Fetcher.new
+
+each_person do |person|
+  data = fetcher.fetch(person).to_json
+  puts "into next queue: #{data}"
+  output_queue.push data
+end

@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'redis'
+require 'redis-queue'
+require_relative '../lib/confinder/parser'
+def queue
+  @queue ||= Redis::Queue.new('waiting', 'processing', redis: redis)
+end
+
+def redis
+  @redis ||= Redis.new
+end
+
+class QueueWrapper
+  def initialize(queue)
+    @queue = queue
+  end
+
+  def push(arg)
+    @queue.push arg.to_json
+  end
+end
+
+input_file = File.new(ARGV.first, "r")
+
+Confinder::Parser.parse(input_file, QueueWrapper.new(queue))
