@@ -45,6 +45,15 @@ module Confinder
       end
     end
 
-    Legislator = OpenStruct
+    class Legislator
+      attr_reader :name
+      def initialize(hash)
+        @name = hash.values_at("firstname", "lastname").join(" ")
+      end
+
+      def to_json
+        {name: name}.to_json
+      end
+    end
   end
 end

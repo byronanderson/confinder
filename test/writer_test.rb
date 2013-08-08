@@ -1,3 +1,4 @@
+gem 'minitest'
 require 'minitest/autorun'
 require_relative '../lib/confinder/writer'
 
@@ -8,17 +9,19 @@ class ConfinderWriterTest < MiniTest::Unit::TestCase
       "name" => "Byron Anderson",
       "legislators" => [
         {
-          "name" => "Mark Udall"
+          "firstname" => "Mark",
+          "lastname" => "Udall"
         },
         {
-          "name" => "Diana DeGette"
+          "firstname" => "Diana",
+          "lastname" => "DeGette",
         }
       ],
     }
     writer = Confinder::Writer.new
-    writer.message_received(message)
+    writer.write(message)
     writer.flush
     file_contents = File.read(writer.file_path)
-    file_contents.must_include '1,Byron Anderson,"Mark Udall,Diana DeGette"'
+    assert_includes file_contents, '1,Byron Anderson,"Mark Udall,Diana DeGette"'
   end
 end
