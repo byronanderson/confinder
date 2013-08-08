@@ -1,13 +1,12 @@
 #!/usr/bin/env ruby
 require 'redis'
 require 'redis-queue'
+require 'uri'
+require_relative '../config/redis'
 require_relative '../lib/confinder/parser'
+
 def queue
   @queue ||= Redis::Queue.new('waiting', 'processing', redis: redis)
-end
-
-def redis
-  @redis ||= Redis.new
 end
 
 class QueueWrapper
