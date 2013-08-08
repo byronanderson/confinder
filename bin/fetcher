@@ -18,7 +18,6 @@ end
 
 def each_person
   while message = fetch_queue.pop
-    puts "received: #{message}"
     message = JSON.parse(message)
     yield message
     fetch_queue.commit
@@ -29,6 +28,5 @@ fetcher = Confinder::Fetcher.new
 
 each_person do |person|
   data = fetcher.fetch(person).to_json
-  puts "into next queue: #{data}"
   output_queue.push data
 end
